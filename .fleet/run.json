@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "command",
+            "name": "run",
+            "program": "node",
+            "args": [
+                "$FILE$"
+            ]
+        }, {
+        "type": "command",
+        "name": "debug",
+        "program": "node",
+        "args": [
+            "--inspect",
+            "--inspect-brk",
+            "$FILE$"
+        ]
+    },
+
+    ]
+}
