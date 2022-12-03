@@ -306,21 +306,17 @@ let pris = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 let res = input.split('\n').map(line => {
     let a = line.substring(0, line.length / 2)
-    let b = line.substring(Math.ceil(line.length / 2))
+    let b = line.substring(line.length / 2)
 
     let as = new Set(Array.from(a))
     let bs = new Set(Array.from(b))
-    print(line)
-    print(as)
-    print(bs)
 
     for ( let item of as ) {
         if (bs.has(item)) return item
     }
-}).map(i => pris.indexOf(i) + 1).reduce((a, b) => a + b);
+}).map(ch => pris.indexOf(ch) + 1).reduce((a, b) => a + b);
 
 print(res)
-
 
 let packs = input.split('\n')
 res = []
@@ -329,10 +325,6 @@ outer: for ( let i = 0 ; i < packs.length ; i += 3 ) {
     let bs = new Set(Array.from(packs[i + 1]))
     let cs = new Set(Array.from(packs[i + 2]))
 
-    print(packs[i])
-    print(as)
-    print(bs)
-    print(cs)
     for ( let item of as ) {
         if ( bs.has(item) && cs.has(item) ) {
             res.push(item)
@@ -341,7 +333,4 @@ outer: for ( let i = 0 ; i < packs.length ; i += 3 ) {
     }
 }
 
-print(packs.length / 3);
-
 print(res.map(item => pris.indexOf(item) + 1).reduce((a, b) => a + b));
-
